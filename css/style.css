@@ -1,0 +1,323 @@
+/* Glitch effect achtergrond */
+body {
+    position: relative;
+    background: black;
+    font-family: Arial, sans-serif;
+    color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/images/achtergrond.jpg') no-repeat center center/cover;
+    z-index: -1;
+}
+
+body::before {
+    animation: glitch1 20s infinite;
+}
+
+body::after {
+    mix-blend-mode: screen;
+    opacity: 0.5;
+    animation: glitch2 20s infinite;
+}
+
+/* Glitch keyframes */
+@keyframes glitch1 {
+    0% {
+        transform: translate(0, 0);
+        clip-path: inset(0 0 0 0);
+    }
+    10% {
+        transform: translate(-5px, -5px);
+        clip-path: inset(10% 0 45% 0);
+    }
+    20% {
+        transform: translate(5px, 5px);
+        clip-path: inset(15% 5% 30% 5%);
+    }
+    30% {
+        transform: translate(-5px, 5px);
+        clip-path: inset(25% 0 10% 0);
+    }
+    40% {
+        transform: translate(5px, -5px);
+        clip-path: inset(0 10% 25% 10%);
+    }
+    50% {
+        transform: translate(0, 0);
+        clip-path: inset(15% 0 50% 0);
+    }
+    60% {
+        transform: translate(-5px, 5px);
+        clip-path: inset(0 20% 10% 20%);
+    }
+    70% {
+        transform: translate(5px, -5px);
+        clip-path: inset(20% 5% 40% 5%);
+    }
+    80% {
+        transform: translate(-5px, 0);
+        clip-path: inset(5% 0 20% 0);
+    }
+    100% {
+        transform: translate(0, 0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes glitch2 {
+    0% {
+        transform: translate(0, 0);
+        clip-path: inset(0 0 0 0);
+    }
+    15% {
+        transform: translate(5px, -5px);
+        clip-path: inset(25% 5% 50% 5%);
+    }
+    30% {
+        transform: translate(-5px, 5px);
+        clip-path: inset(10% 10% 30% 10%);
+    }
+    45% {
+        transform: translate(5px, 5px);
+        clip-path: inset(0 0 10% 0);
+    }
+    60% {
+        transform: translate(-5px, -5px);
+        clip-path: inset(20% 5% 50% 5%);
+    }
+    75% {
+        transform: translate(5px, 0);
+        clip-path: inset(5% 0 25% 0);
+    }
+    100% {
+        transform: translate(0, 0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+/* Game container */
+#game-container {
+    width: 90%; 
+    max-width: 1000px; 
+    height: 90%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7); 
+    border-radius: 15px; 
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8); 
+    padding: 40px;
+    transition: all 0.3s ease;
+}
+
+/* Game start */
+#game-start {
+    text-align: center;
+    background-color: rgba(100, 101, 104, 0.1); 
+    padding: 30px;
+    border-radius: 12px;
+    transition: opacity 1s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+#game-start h1 {
+    font-size: 5rem;
+    color: #b30000; 
+    text-shadow: 2px 2px 5px black, 0 0 15px #800000; 
+    font-family: 'Creepster', cursive; 
+    letter-spacing: 2px;
+}
+
+#game-start p {
+    font-size: 2rem;
+    color: #d10000; 
+    text-shadow: 1px 1px 5px black;
+    font-family: 'Special Elite', monospace; 
+}
+#start-button {
+    background: linear-gradient(to left top, #1b0109, #881513);    color: white;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#start-button:hover {
+    background-color: #660000; 
+    color: #ffcccc; 
+    box-shadow: 0 0 10px #b30000, 0 0 20px black; 
+    transform: scale(1.1);
+}
+
+#start-button:active {
+    transform: translateY(1px); 
+}
+
+/* Hide content */
+.hidden {
+    display: none;
+}
+
+/* Story image styling */
+#story-image-container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    transition: opacity 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+#story-image:hover {
+    transform: scale(1.02); 
+    box-shadow: 0 0 30px #ff0000, 0 0 60px #990000; 
+    filter: brightness(0.8) contrast(1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; 
+}
+
+#story-image {
+    width: 80%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Text styling */
+#story-text {
+    margin-top: 20px;
+    font-size: 25px;
+    text-align: center;
+    max-width: 750px;
+    line-height: 1.8;
+    color: #ff1a1a; 
+    text-shadow: 1px 1px 10px black, 0 0 20px #800000; 
+    font-family: 'Creepster', cursive;
+    letter-spacing: 1px;    opacity: 0;
+    animation: fadeInText 1s forwards;
+}
+
+/* Buttons container styling */
+#buttons-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 30px;
+}
+
+/* Button styling */
+button {
+    background: linear-gradient(to left bottom, #2d2956, #960c09);    color: white;
+    font-size: 16px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: #660000; 
+    color: #ffcccc; 
+    box-shadow: 0 0 10px #b30000, 0 0 20px black;
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+    background: #3a3f5a;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Game over */
+#game-over {
+    text-align: center;
+    font-size: 3rem;
+    background-color: rgba(30, 42, 58, 0.9); 
+    padding: 50px;
+    border-radius: 12px;
+    color: #ff0000; 
+    text-shadow: 2px 2px 15px black, 0 0 25px #990000; 
+    font-family: 'Creepster', cursive;
+    letter-spacing: 2px;    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+ #game-over img {
+    width: 100%;
+    max-width: 550px;
+    margin: 30px 0;
+    border-radius: 12px;
+}
+
+/* Fade in animatie tekst */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Achtergrond fade in animatie */
+@keyframes backgroundFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        transform: scale(1); 
+    }
+
+    #game-container {
+        width: 95%;
+        max-width: 900px;
+        height: 95%;
+    }
+
+    #game-start h1 {
+        font-size: 2.5rem;
+    }
+
+    #start-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}

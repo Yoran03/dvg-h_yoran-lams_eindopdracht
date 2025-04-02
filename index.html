@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
+    <title>Haunted Mansion Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div id="game-container">
+        <!-- Game Start -->
+        <div id="game-start">
+            <h1>Haunted Mansion</h1>
+            <p>Welkom in de Haunted Mansion. Kun jij ontsnappen?</p>
+            <button id="start-button">Start Game</button>
+        </div>
+
+        <!-- Game -->
+        <div id="game-content" class="hidden">
+            <div id="story-image-container">
+                <img id="story-image" src="assets/images/achtergrond.jpg" alt="Game Image">
+            </div>
+            <div id="story-text"></div>
+            <div id="buttons-container"></div>
+        </div>
+
+        <!-- Game Over -->
+        <div id="game-over" class="hidden">
+            <h2>Je bent dood!!!</h2>
+            <img src="assets/images/game-over.jpg" alt="Game Over">
+            <button id="restart-button">Restart Game</button>
+        </div>
+    </div>
+
+    <!-- Achtergrond Muziek -->
+    <audio id="achtergrond-muziek" loop>
+        <source src="assets/sounds/achtergrond-muziek.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/storyData.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
